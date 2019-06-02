@@ -40,7 +40,7 @@ export const constantRoutes = [
   {
     path: '/404',
     component: () => import('@/views/404'),
-    hidden: true
+    hidden: false
   },
 
   {
@@ -51,8 +51,36 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '仪表盘', icon: 'dashboard' }
     }]
+  },
+
+  {
+    path: '/page',
+    component: Layout,
+    redirect: '/page/manager',
+    meta: { title: '页面管理', icon: 'page' },
+    children: [
+      {
+        path: 'manager',
+        name: 'pageManager',
+        component: () => import('@/views/pagemanager/index'),
+        meta: {
+          title: '页面浏览',
+          icon: 'pageview'
+        }
+      },
+
+      {
+        path: 'addPage',
+        name: 'addPage',
+        component: () => import('@/views/pagemanager/addPage.vue'),
+        meta: {
+          title: '添加页面',
+          icon: 'add-page'
+        }
+      }
+    ]
   },
 
   {
@@ -60,7 +88,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: '实例', icon: 'example' },
     children: [
       {
         path: 'table',
@@ -160,7 +188,7 @@ export const constantRoutes = [
   },
 
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/404', hidden: false }
 ]
 
 const createRouter = () => new Router({
