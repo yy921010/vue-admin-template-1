@@ -27,6 +27,9 @@ import { mockXHR } from '../mock'
 if (process.env.NODE_ENV === 'production') {
   mockXHR()
 }
+import VueCropper from 'vue-cropper'
+
+Vue.use(VueCropper)
 
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })

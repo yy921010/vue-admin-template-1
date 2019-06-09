@@ -64,7 +64,7 @@ export const constantRoutes = [
       {
         path: 'index',
         name: 'pageManager',
-        component: () => import('@/views/page/index'),
+        component: () => import('@/views/pageSide/index'),
         meta: {
           title: '页面浏览',
           icon: 'pageview'
@@ -74,7 +74,7 @@ export const constantRoutes = [
       {
         path: 'addPage',
         name: 'addPage',
-        component: () => import('@/views/page/addPage.vue'),
+        component: () => import('@/views/pageSide/addPage.vue'),
         meta: {
           title: '添加页面',
           icon: 'add-page'
@@ -111,7 +111,16 @@ export const constantRoutes = [
         component: () => import('@/views/content/index'),
         meta: {
           title: '内容管理',
-          icon: 'content'
+          icon: 'content-paste'
+        }
+      },
+      {
+        path: 'add',
+        name: 'contentAdd',
+        component: () => import('@/views/content/addContent'),
+        meta: {
+          title: '内容添加',
+          icon: 'content-add'
         }
       }
     ]
